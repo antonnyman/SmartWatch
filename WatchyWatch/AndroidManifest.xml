@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="se.antonnyman.watchywatch"
+    android:versionCode="1"
+    android:versionName="1.0" >
+    
+    <uses-permission android:name="com.sonyericsson.extras.liveware.aef.EXTENSION_PERMISSION" />
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="19" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="se.antonnyman.watchywatch.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        <service android:name=".MyExtensionService" />
+		<receiver 
+		    android:name=".MyBroadcastReceiver" 
+		    android:permission="com.sonyericsson.extras.liveware.aef.HOSTAPP_PERMISSION">
+    			<intent-filter>
+        			<action android:name="com.sonyericsson.extras.liveware.aef.registration.EXTENSION_REGISTER_REQUEST" />
+   				</intent-filter>
+		</receiver>
+    </application>
+
+</manifest>
